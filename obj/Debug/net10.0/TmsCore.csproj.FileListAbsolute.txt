@@ -1,0 +1,14 @@
+E:\Qiyas\TmsCore\bin\Debug\net10.0\TmsCore.exe
+E:\Qiyas\TmsCore\bin\Debug\net10.0\TmsCore.deps.json
+E:\Qiyas\TmsCore\bin\Debug\net10.0\TmsCore.runtimeconfig.json
+E:\Qiyas\TmsCore\bin\Debug\net10.0\TmsCore.dll
+E:\Qiyas\TmsCore\bin\Debug\net10.0\TmsCore.pdb
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.GeneratedMSBuildEditorConfig.editorconfig
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.AssemblyInfoInputs.cache
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.AssemblyInfo.cs
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.csproj.CoreCompileInputs.cache
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.dll
+E:\Qiyas\TmsCore\obj\Debug\net10.0\refint\TmsCore.dll
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.pdb
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.genruntimeconfig.cache
+E:\Qiyas\TmsCore\obj\Debug\net10.0\ref\TmsCore.dll
