@@ -12,3 +12,4 @@ E:\Qiyas\TmsCore\obj\Debug\net10.0\refint\TmsCore.dll
 E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.pdb
 E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.genruntimeconfig.cache
 E:\Qiyas\TmsCore\obj\Debug\net10.0\ref\TmsCore.dll
+E:\Qiyas\TmsCore\obj\Debug\net10.0\TmsCore.sourcelink.json
