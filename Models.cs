@@ -81,3 +81,41 @@ public class LabAssignment : IGradable
         return (FunctionalityScore * 0.7m) + (CodeQualityScore * 0.3m);
     }
 }
+
+/// Thrown when database operations fail, capturing technical context for operators.
+/// </summary>
+public class TmsDatabaseException : Exception
+{
+    public string Operation { get; }
+
+    public TmsDatabaseException(string operation, string message) : base(message)
+    {
+        Operation = operation;
+    }
+
+    public TmsDatabaseException(string operation, string message, Exception innerException)
+        : base(message, innerException)
+    {
+        Operation = operation;
+    }
+}
+
+/// <summary>
+/// Thrown when a student attempts to enroll in a course that has zero remaining seats.
+/// </summary>
+public class CapacityReachedException : InvalidOperationException
+{
+    public string CourseCode { get; }
+
+    public CapacityReachedException(string courseCode)
+        : base($"Course {courseCode} has reached maximum capacity.")
+    {
+        CourseCode = courseCode;
+    }
+
+    public CapacityReachedException(string courseCode, Exception innerException)
+        : base($"Course {courseCode} has reached maximum capacity.", innerException)
+    {
+        CourseCode = courseCode;
+    }
+}

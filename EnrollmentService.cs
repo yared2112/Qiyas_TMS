@@ -1,33 +1,40 @@
+using System;
+
 namespace TmsCore;
 
 public class EnrollmentService
 {
+    // TODO 1 & 2: Define a delegate listener property using Action<T>
+    // The '?' denotes that it is nullable (it won't throw if no one is listening)
+    public Action<Student>? OnEnrollmentCompleted { get; set; }
+
     public EnrollmentRecord ProcessRegistration(Student? student, Course? course)
     {
-        // TODO 1: Guard clauses - (Fail Fast )
-        if (student is null)
-            throw new ArgumentNullException(nameof(student));
+        // Prior Guard Clauses and validations remain untouched here
+        if (student is null) throw new ArgumentNullException(nameof(student));
+        if (course is null) throw new ArgumentNullException(nameof(course));
+        if (course.EnrolledCount >= course.Capacity) throw new CapacityReachedException(course.Code);
 
-        if (course is null)
-            throw new ArgumentNullException(nameof(course));
-
-        if (course.Capacity <= 0)
-            throw new InvalidOperationException("Course capacity must be greater than zero.");
-
-        if (course.EnrolledCount >= course.Capacity)
-            throw new InvalidOperationException("Course is full. Cannot process enrollment.");
-
-        // TODO 2: Switch expression - (Pattern Matching)
         string standing = student.GPA switch
         {
             >= 3.5m => "Honors",
             >= 2.5m => "Good Standing",
-            _ => "Academic Warning" // (Discard Pattern)
+            _ => "Academic Warning"
         };
+        Console.WriteLine($"  {student.Name} is in {standing}.");
 
-        Console.WriteLine($"{student.Name} is in {standing}.");
+        // Execute persistence and trigger the delegate notification pipeline
+        FinalizeEnrollment(student);
 
-        // TODO 3: EnrollmentRecord
         return new EnrollmentRecord(student.Id, course.Code, DateTime.UtcNow);
+    }
+
+    public void FinalizeEnrollment(Student s)
+    {
+        Console.WriteLine("  Persisting record to database...");
+
+        // TODO 3: Check if the delegate listener is 'not null' and invoke it with the student object.
+        // We use the modern C# Null-conditional operator (?.) to cleanly handle null safety.
+        OnEnrollmentCompleted?.Invoke(s);
     }
 }
